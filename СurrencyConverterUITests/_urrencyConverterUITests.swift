@@ -1,13 +1,13 @@
 //
-//  Project_1UITests.swift
-//  Project_1UITests
+//  _urrencyConverterUITests.swift
+//  СurrencyConverterUITests
 //
-//  Created by Виктория Федосова on 15.03.2022.
+//  Created by Виктория Федосова on 16.03.2022.
 //
 
 import XCTest
 
-class Project_1UITests: XCTestCase {
+class _urrencyConverterUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

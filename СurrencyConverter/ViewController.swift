@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Project_1
+//  СurrencyConverter
 //
-//  Created by Виктория Федосова on 15.03.2022.
+//  Created by Виктория Федосова on 16.03.2022.
 //
 
 import UIKit

@@ -1,13 +1,13 @@
 //
-//  Project_1UITestsLaunchTests.swift
-//  Project_1UITests
+//  _urrencyConverterUITestsLaunchTests.swift
+//  СurrencyConverterUITests
 //
-//  Created by Виктория Федосова on 15.03.2022.
+//  Created by Виктория Федосова on 16.03.2022.
 //
 
 import XCTest
 
-class Project_1UITestsLaunchTests: XCTestCase {
+class _urrencyConverterUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
