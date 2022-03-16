@@ -1,5 +1,5 @@
 //
-//  _urrencyConverterUITestsLaunchTests.swift
+//  CurrencyConverterUITestsLaunchTests.swift
 //  СurrencyConverterUITests
 //
 //  Created by Виктория Федосова on 16.03.2022.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class _urrencyConverterUITestsLaunchTests: XCTestCase {
+class CurrencyConverterUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

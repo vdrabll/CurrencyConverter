@@ -13,9 +13,9 @@
 		51F000BA27E1F2C500856D68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F000B827E1F2C500856D68 /* Main.storyboard */; };
 		51F000BC27E1F2CA00856D68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F000BB27E1F2CA00856D68 /* Assets.xcassets */; };
 		51F000BF27E1F2CA00856D68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F000BD27E1F2CA00856D68 /* LaunchScreen.storyboard */; };
-		51F000CA27E1F2CA00856D68 /* _urrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000C927E1F2CA00856D68 /* _urrencyConverterTests.swift */; };
-		51F000D427E1F2CA00856D68 /* _urrencyConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000D327E1F2CA00856D68 /* _urrencyConverterUITests.swift */; };
-		51F000D627E1F2CA00856D68 /* _urrencyConverterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000D527E1F2CA00856D68 /* _urrencyConverterUITestsLaunchTests.swift */; };
+		51F000CA27E1F2CA00856D68 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000C927E1F2CA00856D68 /* CurrencyConverterTests.swift */; };
+		51F000D427E1F2CA00856D68 /* CurrencyConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000D327E1F2CA00856D68 /* CurrencyConverterUITests.swift */; };
+		51F000D627E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +45,10 @@
 		51F000BE27E1F2CA00856D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51F000C027E1F2CA00856D68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51F000C527E1F2CA00856D68 /* СurrencyConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "СurrencyConverterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		51F000C927E1F2CA00856D68 /* _urrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _urrencyConverterTests.swift; sourceTree = "<group>"; };
+		51F000C927E1F2CA00856D68 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		51F000CF27E1F2CA00856D68 /* СurrencyConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "СurrencyConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		51F000D327E1F2CA00856D68 /* _urrencyConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _urrencyConverterUITests.swift; sourceTree = "<group>"; };
-		51F000D527E1F2CA00856D68 /* _urrencyConverterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _urrencyConverterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		51F000D327E1F2CA00856D68 /* CurrencyConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITests.swift; sourceTree = "<group>"; };
+		51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 		51F000C827E1F2CA00856D68 /* СurrencyConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				51F000C927E1F2CA00856D68 /* _urrencyConverterTests.swift */,
+				51F000C927E1F2CA00856D68 /* CurrencyConverterTests.swift */,
 			);
 			path = "СurrencyConverterTests";
 			sourceTree = "<group>";
@@ -121,8 +121,8 @@
 		51F000D227E1F2CA00856D68 /* СurrencyConverterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				51F000D327E1F2CA00856D68 /* _urrencyConverterUITests.swift */,
-				51F000D527E1F2CA00856D68 /* _urrencyConverterUITestsLaunchTests.swift */,
+				51F000D327E1F2CA00856D68 /* CurrencyConverterUITests.swift */,
+				51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */,
 			);
 			path = "СurrencyConverterUITests";
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51F000CA27E1F2CA00856D68 /* _urrencyConverterTests.swift in Sources */,
+				51F000CA27E1F2CA00856D68 /* CurrencyConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51F000D627E1F2CA00856D68 /* _urrencyConverterUITestsLaunchTests.swift in Sources */,
-				51F000D427E1F2CA00856D68 /* _urrencyConverterUITests.swift in Sources */,
+				51F000D627E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift in Sources */,
+				51F000D427E1F2CA00856D68 /* CurrencyConverterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +452,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.-urrencyConverter";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.CurrencyConverter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -480,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.-urrencyConverter";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.CurrencyConverter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -499,7 +499,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.-urrencyConverterTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.CurrencyConverterTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -519,7 +519,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.-urrencyConverterTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.CurrencyConverterTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -537,7 +537,7 @@
 				DEVELOPMENT_TEAM = TL2V4D22UR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.-urrencyConverterUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.CurrencyConverterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -555,7 +555,7 @@
 				DEVELOPMENT_TEAM = TL2V4D22UR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.-urrencyConverterUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedosova-Viktorya.CurrencyConverterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

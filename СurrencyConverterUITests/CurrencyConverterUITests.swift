@@ -1,5 +1,5 @@
 //
-//  _urrencyConverterUITests.swift
+//  CurrencyConverterUITests.swift
 //  СurrencyConverterUITests
 //
 //  Created by Виктория Федосова on 16.03.2022.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class _urrencyConverterUITests: XCTestCase {
+class CurrencyConverterUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
