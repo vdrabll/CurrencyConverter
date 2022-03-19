@@ -20,7 +20,7 @@ var date: String?
   }
     
     func setButtonTitle() {
-        formatter1.dateStyle = .short
+        formatter1.dateFormat = "dd/MM/yyyy"
         date = formatter1.string(from: today)
         dateButton.setTitle(date, for: UIControl.State.normal)
         dateButton.titleLabel?.font = UIFont(name: "American Typewriter", size: 24)
