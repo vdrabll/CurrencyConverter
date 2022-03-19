@@ -11,39 +11,40 @@
         <!--💸 Конвертер Валют -->
         <scene sceneID="nRo-k8-33c">
             <objects>
-                <viewController id="k11-Bd-uU4" sceneMemberID="viewController">
+                <viewController id="k11-Bd-uU4" customClass="ViewController" customModule="СurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Btz-CY-meX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrH-aJ-4DE" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="88" width="428" height="92"/>
+                                <rect key="frame" x="0.0" y="88" width="428" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzg-wO-zhI">
-                                        <rect key="frame" x="267" y="23" width="139" height="41"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="18.03.22">
-                                            <color key="titleColor" systemColor="systemBrownColor"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Курс валют на: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dek-Wa-G5M" userLabel="CurrencyLabel">
-                                        <rect key="frame" x="31" y="23" width="213" height="41"/>
+                                        <rect key="frame" x="31" y="23" width="213" height="29"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
                                         <color key="textColor" systemColor="systemBrownColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="dateButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC3-ya-UDC">
+                                        <rect key="frame" x="230" y="5" width="190" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="dateButton">
+                                            <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="systemBrownColor"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97994834180000001" green="0.97724789379999999" blue="0.94117110969999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Dek-Wa-G5M" secondAttribute="trailing" constant="184" id="397-co-kkb"/>
-                                    <constraint firstItem="pzg-wO-zhI" firstAttribute="leading" secondItem="TrH-aJ-4DE" secondAttribute="leading" constant="267" id="7hk-1A-JNr"/>
                                     <constraint firstItem="Dek-Wa-G5M" firstAttribute="top" secondItem="TrH-aJ-4DE" secondAttribute="top" constant="23" id="IwI-mc-p8X"/>
-                                    <constraint firstItem="pzg-wO-zhI" firstAttribute="top" secondItem="TrH-aJ-4DE" secondAttribute="top" constant="23" id="Qet-cY-ucF"/>
                                     <constraint firstAttribute="bottom" secondItem="Dek-Wa-G5M" secondAttribute="bottom" constant="28" id="R3I-Ty-2tf"/>
-                                    <constraint firstAttribute="trailing" secondItem="pzg-wO-zhI" secondAttribute="trailing" constant="22" id="YfO-9m-yEa"/>
                                     <constraint firstItem="Dek-Wa-G5M" firstAttribute="leading" secondItem="TrH-aJ-4DE" secondAttribute="leading" constant="31" id="aH4-cQ-VhN"/>
-                                    <constraint firstAttribute="bottom" secondItem="pzg-wO-zhI" secondAttribute="bottom" constant="28" id="bd5-cN-Ux7"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -56,6 +57,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="💸 Конвертер Валют " id="inn-IS-B6X"/>
+                    <connections>
+                        <outlet property="dateButton" destination="sC3-ya-UDC" id="7UD-sW-F8k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyO-tU-eHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
