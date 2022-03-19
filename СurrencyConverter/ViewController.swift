@@ -21,16 +21,14 @@ class ViewController: UIViewController {
     }
     
     private func setupDateButton() {
-        dateButton.setTitle(getCurrentDate(), for: UIControl.State.normal )
+        dateButton.setTitle(getCurrentDate(), for: .normal )
     }
     
 }
 
 private func getCurrentDate() -> String {
-    var currentDate: String
     let today = Date()
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd/MM/yyyy"
-    currentDate = dateFormatter.string(from: today)
-   return currentDate
+    return dateFormatter.string(from: today)
 }
