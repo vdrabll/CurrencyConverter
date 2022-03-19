@@ -11,7 +11,7 @@
         <!--💸 Конвертер Валют -->
         <scene sceneID="nRo-k8-33c">
             <objects>
-                <viewController id="k11-Bd-uU4" customClass="ViewController" customModule="СurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k11-Bd-uU4" customClass="CurrencyViewController" customModule="СurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Btz-CY-meX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
