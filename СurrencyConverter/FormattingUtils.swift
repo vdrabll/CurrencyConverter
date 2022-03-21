@@ -7,12 +7,16 @@
 
 import Foundation
 
-class FormattingUtils:  FormatterProtocol  {
+class FormattingUtils: FormatterProtocol  {
+    
+    let dateFormatter: DateFormatter
+    
+    init(dateFormatter: DateFormatter = DateFormatter()) {
+        self.dateFormatter = dateFormatter
+    }
     
     func formatDate(date : Date, format: String) -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format 
+        dateFormatter.dateFormat = format
         return dateFormatter.string(from: date)
     }
 }

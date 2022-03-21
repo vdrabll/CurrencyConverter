@@ -20,7 +20,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
     
     private func setupPresenter() {
-        let presenter = CurrencyPresenter(formatter: FormatterProtocol.self as! FormatterProtocol )
+        let presenter = CurrencyPresenter(formatter: Formatter)
         presenter.view = self
         output = presenter
     }
@@ -28,4 +28,5 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     func setDateButtonTitle(_ title: String) {
         dateButton.setTitle(title, for: .normal)
     }
+    
 }
