@@ -10,7 +10,7 @@ import Foundation
 class CurrencyPresenter: Utils, CurrencyViewOutput {
     
     weak var view: CurrencyViewInput?
-    weak var util : Utils? 
+    var util : Utils?
     
     func viewLoaded() {
         view?.setDateButtonTitle(getCurrentDate())
