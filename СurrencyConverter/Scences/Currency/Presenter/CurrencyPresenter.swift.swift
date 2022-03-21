@@ -7,19 +7,23 @@
 
 import Foundation
 
-class CurrencyPresenter: Utils, CurrencyViewOutput {
+class CurrencyPresenter: CurrencyViewOutput {
     
     weak var view: CurrencyViewInput?
-    var util : Utils?
+    var formatter: FormatterProtocol
+    let dateFormat: String = "dd/MM/yyyy"
     
+    init (formatter: FormatterProtocol) {
+        self.formatter = formatter 
+    }
     func viewLoaded() {
-        view?.setDateButtonTitle(getCurrentDate())
+        view?.setDateButtonTitle(getCurrentDate(with: dateFormat))
     }
     
     func dateButtonTapped() {}
     
-    private func getCurrentDate() -> String {
+    private func getCurrentDate(with format: String) -> String {
         let today = Date()
-        return dataFormat(date: today)
+        return formatter.formatDate(date: today, format: format)
     }
 }

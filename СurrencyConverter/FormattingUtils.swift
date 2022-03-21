@@ -7,11 +7,12 @@
 
 import Foundation
 
-class Utils {
+class FormattingUtils:  FormatterProtocol  {
     
-     func dataFormat( date : Date ) -> String {
+    func formatDate(date : Date, format: String) -> String {
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = format 
         return dateFormatter.string(from: date)
     }
 }
