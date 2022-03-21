@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CurrencyPresenter: CurrencyViewOutput {
+class CurrencyPresenter: Utils, CurrencyViewOutput {
     
     weak var view: CurrencyViewInput?
     
@@ -19,8 +19,6 @@ class CurrencyPresenter: CurrencyViewOutput {
     
     private func getCurrentDate() -> String {
         let today = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.string(from: today)
+        return dataFormat(date: today)
     }
 }
