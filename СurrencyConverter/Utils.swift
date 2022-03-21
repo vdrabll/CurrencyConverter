@@ -9,10 +9,9 @@ import Foundation
 
 class Utils {
     
-    public func dataFormat( date : Date ) -> String {
+    internal func dataFormat( date : Date ) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.string(from: date)
     }
-    
 }
