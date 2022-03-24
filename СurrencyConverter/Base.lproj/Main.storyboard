@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k11-Bd-uU4">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="soD-kw-Ci9">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,85 +8,76 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--💸 Конвертер Валют -->
+        <!--Валюты-->
         <scene sceneID="nRo-k8-33c">
             <objects>
                 <viewController id="k11-Bd-uU4" customClass="CurrencyViewController" customModule="СurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Btz-CY-meX">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                    <view key="view" contentMode="scaleToFill" id="Btz-CY-meX" userLabel="CurrencyViewCintroller">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrH-aJ-4DE" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="88" width="428" height="80"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZQ-Y7-pb9">
+                                <rect key="frame" x="0.0" y="107" width="375" height="217"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Курс валют на: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dek-Wa-G5M" userLabel="CurrencyLabel">
-                                        <rect key="frame" x="31" y="23" width="213" height="29"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
-                                        <color key="textColor" systemColor="systemBrownColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="dateButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC3-ya-UDC">
-                                        <rect key="frame" x="230" y="5" width="190" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <accessibility key="accessibilityConfiguration" label="dateButton">
-                                            <accessibilityTraits key="traits" button="YES" staticText="YES"/>
-                                            <bool key="isElement" value="NO"/>
-                                        </accessibility>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="24"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <color key="titleColor" systemColor="systemBrownColor"/>
-                                        </state>
-                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="P8C-3c-2fJ">
+                                        <rect key="frame" x="23" y="0.0" width="330" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97994834180000001" green="0.97724789379999999" blue="0.94117110969999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Dek-Wa-G5M" secondAttribute="trailing" constant="184" id="397-co-kkb"/>
-                                    <constraint firstItem="Dek-Wa-G5M" firstAttribute="top" secondItem="TrH-aJ-4DE" secondAttribute="top" constant="23" id="IwI-mc-p8X"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dek-Wa-G5M" secondAttribute="bottom" constant="28" id="R3I-Ty-2tf"/>
-                                    <constraint firstItem="Dek-Wa-G5M" firstAttribute="leading" secondItem="TrH-aJ-4DE" secondAttribute="leading" constant="31" id="aH4-cQ-VhN"/>
+                                    <constraint firstAttribute="trailing" secondItem="P8C-3c-2fJ" secondAttribute="trailing" constant="22" id="S8r-ah-eWP"/>
+                                    <constraint firstAttribute="bottom" secondItem="P8C-3c-2fJ" secondAttribute="bottom" constant="183" id="VoP-UR-yDB"/>
+                                    <constraint firstItem="P8C-3c-2fJ" firstAttribute="leading" secondItem="mZQ-Y7-pb9" secondAttribute="leading" constant="23" id="ZOC-po-HuH"/>
+                                    <constraint firstItem="P8C-3c-2fJ" firstAttribute="top" secondItem="mZQ-Y7-pb9" secondAttribute="top" id="rJa-Oc-DxR"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GMQ-Ua-qUy"/>
-                        <color key="backgroundColor" red="0.97994834180000001" green="0.97724789379999999" blue="0.94117110969999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" searchField="YES" allowsDirectInteraction="YES"/>
+                        </accessibility>
                         <constraints>
-                            <constraint firstItem="TrH-aJ-4DE" firstAttribute="leading" secondItem="GMQ-Ua-qUy" secondAttribute="leading" id="EUg-DT-7Rb"/>
-                            <constraint firstItem="GMQ-Ua-qUy" firstAttribute="trailing" secondItem="TrH-aJ-4DE" secondAttribute="trailing" id="eep-zk-Eb5"/>
-                            <constraint firstItem="TrH-aJ-4DE" firstAttribute="top" secondItem="GMQ-Ua-qUy" secondAttribute="top" id="q8p-DR-4Gq"/>
+                            <constraint firstItem="mZQ-Y7-pb9" firstAttribute="top" secondItem="GMQ-Ua-qUy" secondAttribute="top" constant="19" id="CgS-Zj-lRm"/>
+                            <constraint firstItem="GMQ-Ua-qUy" firstAttribute="bottom" secondItem="mZQ-Y7-pb9" secondAttribute="bottom" constant="454" id="HJN-L6-3kR"/>
+                            <constraint firstItem="mZQ-Y7-pb9" firstAttribute="trailing" secondItem="GMQ-Ua-qUy" secondAttribute="trailing" id="Rlk-DU-yhw"/>
+                            <constraint firstItem="mZQ-Y7-pb9" firstAttribute="leading" secondItem="GMQ-Ua-qUy" secondAttribute="leading" id="yJ6-cX-8ke"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="💸 Конвертер Валют " id="inn-IS-B6X"/>
+                    <navigationItem key="navigationItem" title="Валюты" id="SSY-yC-BiU"/>
                     <connections>
-                        <outlet property="dateButton" destination="sC3-ya-UDC" id="7UD-sW-F8k"/>
+                        <outlet property="inputTextField" destination="P8C-3c-2fJ" id="CHp-Cx-dq3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyO-tU-eHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457.00934579439252" y="50.53995680345573"/>
+            <point key="canvasLocation" x="1356" y="50.246305418719217"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="q7i-1X-xbt">
+        <scene sceneID="3rP-5h-NYo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ym-qx-XVt" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="soD-kw-Ci9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D5h-da-kGB">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q1i-jz-25s">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="k11-Bd-uU4" kind="relationship" relationship="rootViewController" id="VeS-KG-Efc"/>
+                        <segue destination="k11-Bd-uU4" kind="relationship" relationship="rootViewController" id="Myq-Lt-w41"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lqK-Bc-SdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHA-i9-PDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-442.99065420560743" y="50.53995680345573"/>
+            <point key="canvasLocation" x="457.00934579439252" y="50.53995680345573"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

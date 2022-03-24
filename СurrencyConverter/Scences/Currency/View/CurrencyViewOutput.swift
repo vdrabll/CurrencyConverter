@@ -9,5 +9,6 @@ import Foundation
 
 protocol CurrencyViewOutput {
     func viewLoaded()
-    func dateButtonTapped()
+    func setDatePicker()
 }
+

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		51AB720227E8613E0077A20E /* FormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AB720127E8613E0077A20E /* FormattingUtils.swift */; };
 		51AB720427E87BA20077A20E /* FormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AB720327E87BA20077A20E /* FormatterProtocol.swift */; };
+		51AB720627E9FD140077A20E /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AB720527E9FD140077A20E /* Constans.swift */; };
 		51F000B327E1F2C500856D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000B227E1F2C500856D68 /* AppDelegate.swift */; };
 		51F000B527E1F2C500856D68 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000B427E1F2C500856D68 /* SceneDelegate.swift */; };
 		51F000B727E1F2C500856D68 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000B627E1F2C500856D68 /* CurrencyViewController.swift */; };
@@ -18,8 +19,8 @@
 		51F000CA27E1F2CA00856D68 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000C927E1F2CA00856D68 /* CurrencyConverterTests.swift */; };
 		51F000D427E1F2CA00856D68 /* CurrencyConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000D327E1F2CA00856D68 /* CurrencyConverterUITests.swift */; };
 		51F000D627E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */; };
-		51FF346527E5EFC300E4FC57 /* CurrencyPresenter.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift.swift */; };
-		51FF346727E5F12900E4FC57 /* CurrencyViewOutput.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift.swift */; };
+		51FF346527E5EFC300E4FC57 /* CurrencyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift */; };
+		51FF346727E5F12900E4FC57 /* CurrencyViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift */; };
 		51FF346B27E5F5A200E4FC57 /* CurrencyViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FF346A27E5F5A200E4FC57 /* CurrencyViewInput.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		51AB720127E8613E0077A20E /* FormattingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingUtils.swift; sourceTree = "<group>"; };
 		51AB720327E87BA20077A20E /* FormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterProtocol.swift; sourceTree = "<group>"; };
+		51AB720527E9FD140077A20E /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		51F000AF27E1F2C500856D68 /* СurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "СurrencyConverter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F000B227E1F2C500856D68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51F000B427E1F2C500856D68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +58,8 @@
 		51F000CF27E1F2CA00856D68 /* СurrencyConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "СurrencyConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F000D327E1F2CA00856D68 /* CurrencyConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITests.swift; sourceTree = "<group>"; };
 		51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenter.swift.swift; sourceTree = "<group>"; };
-		51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewOutput.swift.swift; sourceTree = "<group>"; };
+		51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenter.swift; sourceTree = "<group>"; };
+		51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewOutput.swift; sourceTree = "<group>"; };
 		51FF346A27E5F5A200E4FC57 /* CurrencyViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				51F000BD27E1F2CA00856D68 /* LaunchScreen.storyboard */,
 				51F000C027E1F2CA00856D68 /* Info.plist */,
 				51AB720327E87BA20077A20E /* FormatterProtocol.swift */,
+				51AB720527E9FD140077A20E /* Constans.swift */,
 			);
 			path = "СurrencyConverter";
 			sourceTree = "<group>";
@@ -160,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				51F000B627E1F2C500856D68 /* CurrencyViewController.swift */,
-				51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift.swift */,
+				51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift */,
 				51FF346A27E5F5A200E4FC57 /* CurrencyViewInput.swift */,
 			);
 			path = View;
@@ -169,7 +172,7 @@
 		51FF346927E5F34200E4FC57 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift.swift */,
+				51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -307,11 +310,12 @@
 			files = (
 				51AB720427E87BA20077A20E /* FormatterProtocol.swift in Sources */,
 				51FF346B27E5F5A200E4FC57 /* CurrencyViewInput.swift in Sources */,
+				51AB720627E9FD140077A20E /* Constans.swift in Sources */,
 				51F000B727E1F2C500856D68 /* CurrencyViewController.swift in Sources */,
-				51FF346727E5F12900E4FC57 /* CurrencyViewOutput.swift.swift in Sources */,
+				51FF346727E5F12900E4FC57 /* CurrencyViewOutput.swift in Sources */,
 				51AB720227E8613E0077A20E /* FormattingUtils.swift in Sources */,
 				51F000B327E1F2C500856D68 /* AppDelegate.swift in Sources */,
-				51FF346527E5EFC300E4FC57 /* CurrencyPresenter.swift.swift in Sources */,
+				51FF346527E5EFC300E4FC57 /* CurrencyPresenter.swift in Sources */,
 				51F000B527E1F2C500856D68 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

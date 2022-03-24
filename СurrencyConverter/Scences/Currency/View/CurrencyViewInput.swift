@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CurrencyViewInput: AnyObject {
-    func setDateButtonTitle(_ title: String)
+    func setTextFieldTitle(_ title: String)
 }

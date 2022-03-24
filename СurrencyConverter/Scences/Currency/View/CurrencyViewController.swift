@@ -7,11 +7,11 @@
 import UIKit
 import Foundation
 
-class CurrencyViewController: UIViewController, CurrencyViewInput {
+class CurrencyViewController: UIViewController {
+  
+    @IBOutlet weak var inputTextField: UITextField!
 
-    @IBOutlet private weak var dateButton: UIButton!
-    
-    var output: CurrencyViewOutput? 
+    var output: CurrencyViewOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +20,8 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
     
     private func setupPresenter() {
-        let presenter = CurrencyPresenter(formatter: Formatter)
-        presenter.view = self
+        
+        let presenter = CurrencyPresenter(formatter: FormattingUtils() as FormatterProtocol, view: self.view, inputTextField: inputTextField )
         output = presenter
     }
-    
-    func setDateButtonTitle(_ title: String) {
-        dateButton.setTitle(title, for: .normal)
-    }
-    
 }
