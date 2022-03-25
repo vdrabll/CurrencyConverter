@@ -10,7 +10,7 @@ import Foundation
 
 class CurrencyViewController: UIViewController, CurrencyViewInput {
    
-    @IBOutlet weak private var inputTextField: UITextField!
+    @IBOutlet private weak var inputTextField: UITextField!
     
     var output: CurrencyViewOutput
     let datePicker: UIDatePicker
@@ -38,7 +38,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     private func setupDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: UIControl.Event.valueChanged)
-        datePicker.frame.size = CGSize(width: 0, height: 300)
+        datePicker.frame.size = CGSize(width: Constants.frameWidth, height: Constants.frameHeight)
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.maximumDate = currentDate
         inputTextField.text = formatDate(date: currentDate)
