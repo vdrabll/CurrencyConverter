@@ -6,20 +6,14 @@
 //
 
 import Foundation
-import UIKit
 
-class CurrencyPresenter: CurrencyViewOutput, CurrencyViewInput {
-    
-    let view: UIView
-    let inputTextField: UITextField
+class CurrencyPresenter: CurrencyViewOutput {
+
     let formatter: FormatterProtocol
-    let datePicker: UIDatePicker
+    var view: CurrencyViewInput?
 
-    init (formatter: FormatterProtocol, view: UIView, inputTextField: UITextField, datePicker: UIDatePicker) {
+    init (formatter: FormatterProtocol ) {
         self.formatter = formatter
-        self.view = view
-        self.inputTextField = inputTextField
-        self.datePicker = datePicker
     }
     
     func viewLoaded() {
@@ -32,10 +26,10 @@ class CurrencyPresenter: CurrencyViewOutput, CurrencyViewInput {
     }
     
     func setTextFieldTitle(_ title: String) {
-        inputTextField.text = title
+        view?.inputTextField.text = title
     }
-    
+
     func setMaxDate() {
-        datePicker.maximumDate = Date()
+        view?.datePicker.maximumDate = Date()
     }
 }

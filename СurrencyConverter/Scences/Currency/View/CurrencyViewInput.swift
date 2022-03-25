@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol CurrencyViewInput: AnyObject {
+protocol CurrencyViewInput: CurrencyViewController {
     func viewLoaded()
-//  func viewTapped()
     
 }
