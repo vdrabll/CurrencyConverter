@@ -8,12 +8,13 @@
 import Foundation
 
 class CurrencyPresenter: CurrencyViewOutput {
-
+    
     let formatter: FormatterProtocol
-    var view: CurrencyViewInput?
+    var view: CurrencyViewInput
 
-    init (formatter: FormatterProtocol ) {
+    init (formatter: FormatterProtocol, view: CurrencyViewInput ) {
         self.formatter = formatter
+        self.view = view
     }
     
     func viewLoaded() {
@@ -30,6 +31,6 @@ class CurrencyPresenter: CurrencyViewOutput {
     }
 
     func setMaxDate() {
-        view?.datePicker.maximumDate = Date()
+        view.datePicker.maximumDate = Date()
     }
 }

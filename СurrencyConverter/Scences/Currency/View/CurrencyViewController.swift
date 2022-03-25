@@ -12,7 +12,6 @@ class CurrencyViewController: UIViewController {
   
     @IBOutlet weak var inputTextField: UITextField!
     var output: CurrencyViewOutput
-    
     let datePicker: UIDatePicker
     
     required init?(coder: NSCoder) {
@@ -29,9 +28,9 @@ class CurrencyViewController: UIViewController {
     
     private func setupPresenter() {
         
-        let presenter = CurrencyPresenter(formatter: FormattingUtils() )
-        output = presenter
-        
+        let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: CurrencyViewInput)
+        self.output = presenter
+
     }
     
     func setTextFieldTitle(_ title: String) {
@@ -61,12 +60,5 @@ class CurrencyViewController: UIViewController {
         formatter.dateFormat = Constants.dateFormat
         return formatter.string(from: date)
     }
-    
-    func setTextFieldTitle(_ title: String) {
-        view.inputTextField.text = title
-    }
-
-    func setMaxDate() {
-        view.datePicker.maximumDate = Date()
-    }
+ 
 }

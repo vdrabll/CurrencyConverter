@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CurrencyViewOutput {
+protocol CurrencyViewOutput  {
     func viewLoaded()
 }
 

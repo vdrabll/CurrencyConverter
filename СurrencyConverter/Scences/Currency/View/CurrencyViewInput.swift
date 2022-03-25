@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CurrencyViewInput {
+protocol CurrencyViewInput: CurrencyViewController {
     func setTextFieldTitle(_ title: String)
     func setMaxDate()
     
