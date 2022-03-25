@@ -26,7 +26,7 @@ class CurrencyPresenter: CurrencyViewOutput {
     }
     
     func setTextFieldTitle(_ title: String) {
-        view?.inputTextField.text = title
+        view.inputTextField.text = title
     }
 
     func setMaxDate() {

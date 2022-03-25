@@ -8,7 +8,6 @@
 import Foundation
 
 protocol CurrencyViewOutput {
-    func setTextFieldTitle(_ title: String)
-    func setMaxDate()
+    func viewLoaded()
 }
 
