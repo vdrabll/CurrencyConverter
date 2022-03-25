@@ -8,9 +8,10 @@
 import UIKit
 import Foundation
 
-class CurrencyViewController: UIViewController {
-  
-    @IBOutlet weak var inputTextField: UITextField!
+class CurrencyViewController: UIViewController, CurrencyViewInput {
+   
+    @IBOutlet weak private var inputTextField: UITextField!
+    
     var output: CurrencyViewOutput
     let datePicker: UIDatePicker
     
@@ -22,25 +23,24 @@ class CurrencyViewController: UIViewController {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
-        setDatePicker()
-        
+        setupDatePicker()
     }
     
     private func setupPresenter() {
         
-        let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: CurrencyViewInput)
+        let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
         self.output = presenter
 
     }
     
-    func setTextFieldTitle(_ title: String) {
+    func setTextFieldTitle(_ title: String){
         inputTextField.text = title
     }
-    
-    func setDatePicker() {
+
+    func setupDatePicker() {
         
         datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
+        datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: UIControl.Event.valueChanged)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.preferredDatePickerStyle = .wheels
         
@@ -51,7 +51,7 @@ class CurrencyViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func dateChange(datePicker: UIDatePicker) {
+    @objc func changeDate(datePicker: UIDatePicker) {
         inputTextField.text = formatDate(date: datePicker.date)
     }
         
@@ -60,5 +60,8 @@ class CurrencyViewController: UIViewController {
         formatter.dateFormat = Constants.dateFormat
         return formatter.string(from: date)
     }
- 
+    
+    func setMaxDate() {
+        datePicker.maximumDate = Date()
+    }
 }

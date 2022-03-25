@@ -10,5 +10,6 @@ import Foundation
 protocol CurrencyViewInput: CurrencyViewController {
     func setTextFieldTitle(_ title: String)
     func setMaxDate()
+    func setupDatePicker()
     
 }
