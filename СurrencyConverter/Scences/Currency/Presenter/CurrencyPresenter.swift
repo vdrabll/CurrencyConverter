@@ -10,7 +10,7 @@ import Foundation
 class CurrencyPresenter: CurrencyViewOutput {
    
     let formatter: FormatterProtocol
-    var view: CurrencyViewInput
+    weak var view: CurrencyViewInput? 
     
     init (formatter: FormatterProtocol, view: CurrencyViewInput ) {
         self.formatter = formatter
@@ -18,8 +18,8 @@ class CurrencyPresenter: CurrencyViewOutput {
     }
     
     func viewLoaded() {
-        view.setupInitialState()
-        view.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
+        view?.setupInitialState()
+        view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
     }
 
     private func getCurrentDate(with format: String) -> String {

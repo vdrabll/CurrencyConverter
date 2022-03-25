@@ -31,10 +31,6 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         self.output = presenter
     }
     
-    func setTextFieldTitle(_ title: String){
-        inputTextField.text = title
-    }
-
     private func setupDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: UIControl.Event.valueChanged)
@@ -44,18 +40,22 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         inputTextField.text = formatDate(date: currentDate)
     }
     
-    @objc func viewTapped(guertureRecognizer: UITapGestureRecognizer) {
+     @objc private  func viewTapped(guertureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    @objc func changeDate(datePicker: UIDatePicker) {
+    @objc private func changeDate(datePicker: UIDatePicker) {
         inputTextField.text = formatDate(date: datePicker.date)
     }
-        
+
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = Constants.dateFormat
         return formatter.string(from: date)
+    }
+    
+     func setTextFieldTitle(_ title: String){
+        inputTextField.text = title
     }
     
     func setupInitialState() {
