@@ -8,5 +8,7 @@
 import Foundation
 
 protocol CurrencyViewInput: AnyObject {
-    func setTextFieldTitle(_ title: String)
+    func viewLoaded()
+//  func viewTapped()
+    
 }

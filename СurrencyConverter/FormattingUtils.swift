@@ -19,4 +19,5 @@ class FormattingUtils: FormatterProtocol  {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: date)
     }
+    
 }
