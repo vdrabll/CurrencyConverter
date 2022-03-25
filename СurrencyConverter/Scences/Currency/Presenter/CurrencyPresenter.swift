@@ -18,7 +18,8 @@ class CurrencyPresenter: CurrencyViewOutput {
     }
     
     func viewLoaded() {
-        setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
+        view.setupInitialState()
+        view.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
     }
 
     private func getCurrentDate(with format: String) -> String {

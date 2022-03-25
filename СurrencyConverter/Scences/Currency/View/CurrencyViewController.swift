@@ -14,6 +14,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     
     var output: CurrencyViewOutput
     let datePicker: UIDatePicker
+    let currentDate = Date()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,28 +24,24 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
-        setupDatePicker()
     }
     
     private func setupPresenter() {
-        
         let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
         self.output = presenter
-
     }
     
     func setTextFieldTitle(_ title: String){
         inputTextField.text = title
     }
 
-    func setupDatePicker() {
-        
+    private func setupDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: UIControl.Event.valueChanged)
         datePicker.frame.size = CGSize(width: 0, height: 300)
         datePicker.preferredDatePickerStyle = .wheels
-        
-        inputTextField.text = formatDate(date: Date())
+        datePicker.maximumDate = currentDate
+        inputTextField.text = formatDate(date: currentDate)
     }
     
     @objc func viewTapped(guertureRecognizer: UITapGestureRecognizer) {
@@ -55,13 +52,13 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         inputTextField.text = formatDate(date: datePicker.date)
     }
         
-    func formatDate(date: Date) -> String {
+    private func formatDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = Constants.dateFormat
         return formatter.string(from: date)
     }
     
-    func setMaxDate() {
-        datePicker.maximumDate = Date()
+    func setupInitialState() {
+        setupDatePicker()
     }
 }
