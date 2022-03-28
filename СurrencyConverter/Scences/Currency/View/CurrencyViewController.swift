@@ -16,20 +16,17 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     private let datePicker: UIDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
     }
     
     private func setupPresenter() {
-        
         let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
         self.output = presenter
     }
     
     private func setupDatePicker() {
-        
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: UIControl.Event.valueChanged)
         datePicker.frame.size = CGSize(width: Constants.datePickerWidth, height: Constants.datePickerHeight)
@@ -45,22 +42,18 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
     
     @objc private func changeDate(datePicker: UIDatePicker) {
-        
         output.dateChanged(date: datePicker.date)
     }
     
     func setMaxDate( date: Date) {
-        
         datePicker.maximumDate = date
     }
     
     func setTextFieldTitle(_ title: String){
-        
         inputTextField.text = title
     }
     
     func setupInitialState() {
-        
         setupDatePicker()
     }
 

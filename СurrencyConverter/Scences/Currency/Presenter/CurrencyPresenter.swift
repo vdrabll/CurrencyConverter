@@ -31,8 +31,8 @@ class CurrencyPresenter: CurrencyViewOutput {
     }
     
     func dateChanged(date: Date) {
-    view?.setTextFieldTitle(formatter.formatDate(date: date, format: Constants.dateFormat))
-    currentDate = date
+        view?.setTextFieldTitle(formatter.formatDate(date: date, format: Constants.dateFormat))
+        currentDate = date
     }
     
    
