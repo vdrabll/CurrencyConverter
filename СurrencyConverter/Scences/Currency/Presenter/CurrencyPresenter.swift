@@ -8,9 +8,10 @@
 import Foundation
 
 class CurrencyPresenter: CurrencyViewOutput {
+    
    
     let formatter: FormatterProtocol
-    weak var view: CurrencyViewInput?
+    var view: CurrencyViewInput?
     var currentDate = Date()
     
     init (formatter: FormatterProtocol, view: CurrencyViewInput ) {
@@ -33,4 +34,6 @@ class CurrencyPresenter: CurrencyViewOutput {
     view?.setTextFieldTitle(formatter.formatDate(date: date, format: Constants.dateFormat))
     currentDate = date
     }
+    
+   
 }
