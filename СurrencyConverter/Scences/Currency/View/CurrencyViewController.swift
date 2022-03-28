@@ -10,15 +10,10 @@ import Foundation
 
 class CurrencyViewController: UIViewController, CurrencyViewInput {
    
-    @IBOutlet private weak var inputTextField: UITextField!
+    @IBOutlet weak var inputTextField: UITextField!
     
-    var output: CurrencyViewOutput
-    let datePicker: UIDatePicker
-    let currentDate = Date()
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var output: CurrencyViewOutput!
+    let datePicker: UIDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +31,11 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         datePicker.addTarget(self, action: #selector(changeDate(datePicker:)), for: UIControl.Event.valueChanged)
         datePicker.frame.size = CGSize(width: Constants.frameWidth, height: Constants.frameHeight)
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.maximumDate = currentDate
-        inputTextField.text = formatDate(date: currentDate)
+        inputTextField.inputView = datePicker
+        
+        let gestRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(guertureRecognizer:)))
+        
+        view.addGestureRecognizer(gestRecognizer)
     }
     
      @objc private  func viewTapped(guertureRecognizer: UITapGestureRecognizer) {
@@ -45,13 +43,11 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
     
     @objc private func changeDate(datePicker: UIDatePicker) {
-        inputTextField.text = formatDate(date: datePicker.date)
+        output.dateChanged(date: datePicker.date)
     }
-
-    private func formatDate(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = Constants.dateFormat
-        return formatter.string(from: date)
+    
+    func setMaxDate( date: Date) {
+        datePicker.maximumDate = date
     }
     
     func setTextFieldTitle(_ title: String){
@@ -61,5 +57,4 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     func setupInitialState() {
         setupDatePicker()
     }
-   
 }

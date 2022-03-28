@@ -9,5 +9,5 @@ import Foundation
 
 protocol CurrencyViewInput: CurrencyViewController {
     func setTextFieldTitle(_ title: String)
-    func setupInitialState()
+    func setMaxDate( date: Date)
 }
