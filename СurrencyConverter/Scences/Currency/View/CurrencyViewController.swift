@@ -54,11 +54,12 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         return formatter.string(from: date)
     }
     
-     func setTextFieldTitle(_ title: String){
+    func setTextFieldTitle(_ title: String){
         inputTextField.text = title
     }
     
     func setupInitialState() {
         setupDatePicker()
     }
+   
 }

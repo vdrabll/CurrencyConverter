@@ -16,14 +16,12 @@ class CurrencyPresenter: CurrencyViewOutput {
         self.formatter = formatter
         self.view = view
     }
-    
-    func viewLoaded() {
-        view?.setupInitialState()
-        view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
-    }
-
     private func getCurrentDate(with format: String) -> String {
         let today = Date()
         return formatter.formatDate(date: today, format: format)
+    }
+    func viewLoaded() {
+        view?.setupInitialState()
+        view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
     }
 }
