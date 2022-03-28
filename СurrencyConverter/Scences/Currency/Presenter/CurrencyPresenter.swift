@@ -11,7 +11,7 @@ class CurrencyPresenter: CurrencyViewOutput {
     
    
     let formatter: FormatterProtocol
-    var view: CurrencyViewInput?
+    weak var view: CurrencyViewInput?
     var currentDate = Date()
     
     init (formatter: FormatterProtocol, view: CurrencyViewInput ) {
