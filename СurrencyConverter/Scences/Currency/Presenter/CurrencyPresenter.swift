@@ -28,6 +28,7 @@ class CurrencyPresenter: CurrencyViewOutput {
         view?.setupInitialState()
         view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
         view?.setMaxDate(date: currentDate)
+        view?.setupCollectionView()
     }
     
     func dateChanged(date: Date) {
