@@ -9,16 +9,15 @@ import UIKit
 import Foundation
 
 class CurrencyViewController: UIViewController, CurrencyViewInput {
-   
-    @IBOutlet private weak var inputTextField: UITextField!
+ 
+    @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    var output: CurrencyViewOutput!
-    let currencyCollectionCellid: String = "CurrencyCollectionViewCell"
     private let datePicker: UIDatePicker = UIDatePicker()
+    let currencyCollectionCellid: String = "CurrencyCollectionViewCell"
+    
     var data = [CurrencyData]()
-   
+    var output: CurrencyViewOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,30 +63,29 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
     
     func setupCollectionView(){
-        print("vika1")
     
         let Nibcell = UINib(nibName: currencyCollectionCellid , bundle: nil)
         collectionView.register(Nibcell, forCellWithReuseIdentifier: currencyCollectionCellid )
         
         for _ in 1...15 {
             let product = CurrencyData()
-            product?.currencyName = "30"
-            product?.currencyPrice = "RUB"
+            product?.currencyName = "RUB" //
+            product?.currencyPrice = "30.3"
             data.append(product!)
         }
         collectionView.reloadData()
     }
-    
 }
 
 extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("vika")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CurrencyCollectionViewCell", for: indexPath) as! CurrencyCollectionViewCell
         let products = data[indexPath.row]
         cell.ticker.text = products.currencyName
         cell.price.text = products.currencyPrice
-        cell.backgroundColor = .lightGray
+        cell.layer.cornerRadius = 12.0
+        cell.backgroundColor = UIColor(red: 0.948, green: 0.963, blue: 0.986, alpha: 1)
         return cell
     }
     
@@ -97,18 +95,30 @@ extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
-
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let inset: CGFloat = 8
-        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 104, height: 110)
+        
+        let cellHeight = view.frame.width - (24*2) + (8*2) / 3
+        let cellWidth = cellHeight
+        return CGSize(width: cellWidth , height: cellHeight )
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10,left: 34,bottom: 24,right: 34)
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let products = data[indexPath.row]
-        print("\(indexPath.row) - \(String(describing: products.currencyName))")
+        let cellData = data[indexPath.row]
+        print("\(indexPath.row) - \(String(describing: cellData.currencyName))")
     }
 }

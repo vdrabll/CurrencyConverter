@@ -12,6 +12,8 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ticker: UILabel!
     @IBOutlet weak var price: UILabel!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

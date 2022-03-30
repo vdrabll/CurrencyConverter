@@ -35,6 +35,4 @@ class CurrencyPresenter: CurrencyViewOutput {
         view?.setTextFieldTitle(formatter.formatDate(date: date, format: Constants.dateFormat))
         currentDate = date
     }
-    
-   
 }

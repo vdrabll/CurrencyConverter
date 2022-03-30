@@ -11,8 +11,8 @@ class CurrencyData {
     var currencyName: String?
     var currencyPrice: String?
     
-    required init?() {
-        
-    }
+    required init?() {}
+    
+    
     
 }
