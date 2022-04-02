@@ -11,31 +11,32 @@ import Foundation
 class CurrencyViewController: UIViewController, CurrencyViewInput {
    
     @IBOutlet weak private var inputTextField: UITextField!
-    @IBOutlet weak var currencyCollectionView: UICollectionView!
+//    @IBOutlet private weak var collectionView: UICollectionView!
+    
     
     private let datePicker: UIDatePicker = UIDatePicker()
     
-    private enum ViewControllerConstants {
-        static let currencyCollectionCellid: String = "collectionCell"
+    enum ViewControllerConstants {
+        static let currencyCollectionCellid: String = "CurrencyCollectionViewCell"
         static let datePickerWidth: Int =  0
         static let datePickerHeight: Int = 300
+
     }
    
     private var data = [CurrencyData]()
     private var output: CurrencyViewOutput!
-    private var cell = CurrencyCollectionViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
-        data.append(CurrencyData())
     }
     
     private func setupPresenter() {
         let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
         self.output = presenter
     }
+    
     
     private func setupDatePicker() {
         datePicker.datePickerMode = .date
@@ -69,24 +70,23 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
 }
 
-
 extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-   private enum Constants {
-        static let cellEdgeInsets: UIEdgeInsets =  UIEdgeInsets(top: 10,left: 34,bottom: 24,right: 34)
-        static let spacingForCells: CGFloat = 8
-        static let backgroundColor: UIColor = UIColor(red: 0.948, green: 0.963, blue: 0.986, alpha: 1)
-        static let radius: Double = 12.0
-        static let currencyCollectionCellid: String = "collectionCell"
+    enum CollectionViewConstants {
+         static let cellEdgeInsets: UIEdgeInsets =  UIEdgeInsets(top: 10,left: 34,bottom: 24,right: 34)
+         static let spacingForCells: CGFloat = 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        cell = (collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellid, for: indexPath) as? CurrencyCollectionViewCell)!
-        cell.setData(data: data[indexPath.row])
-        cell.backgroundColor = Constants.backgroundColor
-        cell.layer.cornerRadius = Constants.radius
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CurrencyCollectionViewCell", for: indexPath) as! CurrencyCollectionViewCell
+        cell.setData(data[indexPath.row])
         return cell
-        }
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = view.frame.width - (24 * 2) + (8 * 2) / 3
@@ -95,17 +95,15 @@ extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return Constants.cellEdgeInsets
+        return CollectionViewConstants.cellEdgeInsets
     }
 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacingForCells
+        return CollectionViewConstants.spacingForCells
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacingForCells
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return CollectionViewConstants.spacingForCells
     }
 }

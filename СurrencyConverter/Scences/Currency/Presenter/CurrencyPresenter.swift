@@ -8,13 +8,16 @@
 import Foundation
 
 class CurrencyPresenter: CurrencyViewOutput {
-    
    
     let formatter: FormatterProtocol
     weak var view: CurrencyViewInput?
-    var currentDate = Date()
+    var selectedDate = Date()
     
-    init (formatter: FormatterProtocol, view: CurrencyViewInput ) {
+    private enum Constants {
+       static let dateFormat: String = "dd.MM.yyyy"
+    }
+    
+    init(formatter: FormatterProtocol, view: CurrencyViewInput ) {
         self.formatter = formatter
         self.view = view
     }
@@ -27,12 +30,11 @@ class CurrencyPresenter: CurrencyViewOutput {
     func viewLoaded() {
         view?.setupInitialState()
         view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
-        view?.setMaxDate(date: currentDate)
-        view?.setupCollectionView()
+        view?.setMaxDate(date: selectedDate)
     }
     
     func dateChanged(date: Date) {
         view?.setTextFieldTitle(formatter.formatDate(date: date, format: Constants.dateFormat))
-        currentDate = date
+        selectedDate = date
     }
 }

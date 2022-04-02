@@ -7,12 +7,8 @@
 
 import Foundation
 
-class CurrencyData {
-    var currencyName: String?
-    var currencyPrice: String?
-    
-    required init?() {}
-    
-    
-    
+struct CurrencyData {
+    let name: String = "RUB"
+    var price: String = "30.3"
 }
+

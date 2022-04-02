@@ -9,14 +9,14 @@ import UIKit
 
 class CurrencyCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var ticker: UILabel!
+    
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var ticker: UILabel!
     
+    let data = CurrencyData()
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setData(data: CurrencyData) {
+        price.text = data.price
+        ticker.text = data.name
     }
-
 }
