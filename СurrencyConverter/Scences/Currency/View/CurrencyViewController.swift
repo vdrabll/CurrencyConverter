@@ -11,25 +11,27 @@ import Foundation
 class CurrencyViewController: UIViewController, CurrencyViewInput {
    
     @IBOutlet weak private var inputTextField: UITextField!
-    @IBOutlet weak var currencyCollectionView: UICollectionView!
+    @IBOutlet weak private var currencyCollectionView: UICollectionView!
     
     private let datePicker: UIDatePicker = UIDatePicker()
     
-    private enum ViewControllerConstants {
-        static let currencyCollectionCellid: String = "collectionCell"
-        static let datePickerWidth: Int =  0
-        static let datePickerHeight: Int = 300
+    private enum Constants {
+        static let datePickerSize = CGSize(width: 0, height: 300)
+        static let cellEdgeInsets = UIEdgeInsets(top: 10, left: 34, bottom: 24, right: 34)
+        static let spacingForCells = CGFloat(8)
+        static let currencyCollectionCellId = "collectionCell"
+        static let gapBetweenCells = 64.0
+        static let cellsInRow = 3.0
+        static let numberOfItemsInSection = 1
     }
    
     private var data = [CurrencyData]()
     private var output: CurrencyViewOutput!
-    private var cell = CurrencyCollectionViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
-        data.append(CurrencyData())
     }
     
     private func setupPresenter() {
@@ -40,7 +42,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     private func setupDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(dataChanged(datePicker:)), for: .valueChanged)
-        datePicker.frame.size = CGSize(width: ViewControllerConstants.datePickerWidth, height: ViewControllerConstants.datePickerHeight)
+        datePicker.frame.size = Constants.datePickerSize
         datePicker.preferredDatePickerStyle = .wheels
         inputTextField.inputView = datePicker
         
@@ -69,29 +71,17 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
 }
 
-
 extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-   private enum Constants {
-        static let cellEdgeInsets: UIEdgeInsets =  UIEdgeInsets(top: 10,left: 34,bottom: 24,right: 34)
-        static let spacingForCells: CGFloat = 8
-        static let backgroundColor: UIColor = UIColor(red: 0.948, green: 0.963, blue: 0.986, alpha: 1)
-        static let radius: Double = 12.0
-        static let currencyCollectionCellid: String = "collectionCell"
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        cell = (collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellid, for: indexPath) as? CurrencyCollectionViewCell)!
-        cell.setData(data: data[indexPath.row])
-        cell.backgroundColor = Constants.backgroundColor
-        cell.layer.cornerRadius = Constants.radius
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellId, for: indexPath) as? CurrencyCollectionViewCell else { return UICollectionViewCell() }
         return cell
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = view.frame.width - (24 * 2) + (8 * 2) / 3
+        let height = view.frame.width - Constants.gapBetweenCells / Constants.cellsInRow
         let width = height
-        return CGSize(width: width , height: height )
+        return CGSize(width: width, height: height)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -106,6 +96,6 @@ extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollecti
         return Constants.spacingForCells
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return Constants.numberOfItemsInSection
     }
 }

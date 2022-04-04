@@ -8,7 +8,7 @@
 import Foundation
 
 struct CurrencyData {
-    let name: String = "RUB"
-    var price: String = "30.3"
+    let name: String
+    var price: String 
 }
 

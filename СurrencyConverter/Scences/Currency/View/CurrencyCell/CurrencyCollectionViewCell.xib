@@ -42,8 +42,8 @@
                 <constraint firstItem="wu9-9J-olq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="31" id="sxs-ub-l9y"/>
             </constraints>
             <connections>
-                <outlet property="price" destination="wu9-9J-olq" id="tgy-9U-RP2"/>
-                <outlet property="ticker" destination="Hgd-kX-5Ow" id="31V-nD-845"/>
+                <outlet property="priceLable" destination="wu9-9J-olq" id="tgy-9U-RP2"/>
+                <outlet property="tickerLable" destination="Hgd-kX-5Ow" id="31V-nD-845"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
         </collectionViewCell>

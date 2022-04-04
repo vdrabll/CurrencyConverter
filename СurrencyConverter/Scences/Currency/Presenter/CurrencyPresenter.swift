@@ -9,12 +9,12 @@ import Foundation
 
 class CurrencyPresenter: CurrencyViewOutput {
    
-    let formatter: FormatterProtocol
+    private let formatter: FormatterProtocol
     weak var view: CurrencyViewInput?
-    var selectedDate = Date()
+    private var selectedDate = Date()
     
     private enum Constants {
-       static let dateFormat: String = "dd.MM.yyyy"
+       static let dateFormat = "dd.MM.yyyy"
     }
     
     init(formatter: FormatterProtocol, view: CurrencyViewInput ) {

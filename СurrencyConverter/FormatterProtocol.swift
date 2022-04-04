@@ -8,6 +8,5 @@
 import Foundation
 
 protocol FormatterProtocol {
-    
     func formatDate(date : Date, format: String) -> String 
 }
