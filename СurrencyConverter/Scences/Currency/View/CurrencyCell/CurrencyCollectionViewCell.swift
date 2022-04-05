@@ -9,8 +9,8 @@ import UIKit
 
 class CurrencyCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var priceLable: UILabel!
-    @IBOutlet weak var tickerLable: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var tickerLabel: UILabel!
     
     private enum Constants {
         static let radius = 12.0
@@ -23,7 +23,7 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
     }
     
     func setData(data: CurrencyData) {
-        self.tickerLable.text = data.name
-        self.priceLable.text = data.price
+        self.tickerLabel.text = data.name
+        self.priceLabel.text = data.price
     }
 }
