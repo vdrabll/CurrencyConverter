@@ -24,7 +24,6 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         static let two = 2.0
         static let cellsInRow = 3.0
         static let numberOfItemsInSection = 15
-
     }
    
     private var data = CurrencyData(name: "RUB", price: "30")
@@ -34,9 +33,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
-        
     }
-    
     
     private func setupPresenter() {
         let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
