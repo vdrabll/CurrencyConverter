@@ -17,6 +17,11 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
         static let backgroundColor = UIColor(red: 0.948, green: 0.963, blue: 0.986, alpha: 1)
     }
     
+    override func awakeFromNib() {
+       super.awakeFromNib()
+        self.setCellParameters()
+    }
+    
     func setCellParameters() {
         self.layer.cornerRadius = Constants.radius
         self.backgroundColor = Constants.backgroundColor

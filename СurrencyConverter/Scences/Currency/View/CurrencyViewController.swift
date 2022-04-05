@@ -37,6 +37,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         
     }
     
+    
     private func setupPresenter() {
         let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
         self.output = presenter
@@ -81,7 +82,6 @@ extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellId, for: indexPath) as? CurrencyCollectionViewCell else { return UICollectionViewCell() }
-        cell.setCellParameters()
         cell.setData(data: data)
         return cell
     }
