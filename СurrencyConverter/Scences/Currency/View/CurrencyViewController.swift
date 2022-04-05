@@ -16,8 +16,8 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     
     private enum Constants {
         static let datePickerSize: CGSize = CGSize(width: 0, height: 300)
-        static let cellEdgeInsets: UIEdgeInsets  = UIEdgeInsets(top: 10, left: 34, bottom: 24, right: 34)
-        static let spacingForCells: CGFloat  = CGFloat(8)
+        static let cellEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 34, bottom: 24, right: 34)
+        static let spacingForCells: CGFloat = CGFloat(8)
         static let currencyCollectionCellId = "collectionCell"
         static let gapBetweenCells = 8.0
         static let edgeDistance = 24.0
