@@ -11,4 +11,3 @@ struct CurrencyData {
     let name: String
     var price: String 
 }
-

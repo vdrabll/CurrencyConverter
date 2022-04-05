@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PM9-3c-f8G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xft-um-ARR">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,85 +12,62 @@
         <scene sceneID="nRo-k8-33c">
             <objects>
                 <viewController id="k11-Bd-uU4" customClass="CurrencyViewController" customModule="СurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleAspectFit" id="Btz-CY-meX" userLabel="CurrencyViewCintroller">
+                    <view key="view" contentMode="scaleToFill" id="dm4-t6-3Oj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AaY-UU-zCT">
-                                <rect key="frame" x="0.0" y="49" width="375" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem id="JW4-VZ-jgm"/>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XeB-7N-jHA">
-                                <rect key="frame" x="43" y="129" width="289" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LxV-rv-MQU">
-                                <rect key="frame" x="0.0" y="171" width="375" height="607"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="udV-0K-7H5">
+                                <rect key="frame" x="0.0" y="165" width="375" height="613"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iaH-RK-ltS">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xNy-cb-jNv">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="z8d-lI-8aO" customClass="CurrencyCollectionViewCell" customModule="СurrencyConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LzN-fb-gQQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="k11-Bd-uU4" id="Zm9-l9-cKD"/>
+                                    <outlet property="delegate" destination="k11-Bd-uU4" id="aT4-1d-gvH"/>
+                                </connections>
                             </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10z-df-CjI">
+                                <rect key="frame" x="53" y="109" width="270" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="GMQ-Ua-qUy"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <accessibility key="accessibilityConfiguration">
-                            <accessibilityTraits key="traits" searchField="YES" allowsDirectInteraction="YES"/>
-                        </accessibility>
-                        <constraints>
-                            <constraint firstItem="AaY-UU-zCT" firstAttribute="top" secondItem="Btz-CY-meX" secondAttribute="top" constant="49" id="4Db-du-VXC"/>
-                            <constraint firstItem="GMQ-Ua-qUy" firstAttribute="trailing" secondItem="XeB-7N-jHA" secondAttribute="trailing" constant="43" id="9Md-5y-4nY"/>
-                            <constraint firstItem="XeB-7N-jHA" firstAttribute="leading" secondItem="GMQ-Ua-qUy" secondAttribute="leading" constant="43" id="CGc-XF-aYH"/>
-                            <constraint firstItem="AaY-UU-zCT" firstAttribute="trailing" secondItem="GMQ-Ua-qUy" secondAttribute="trailing" id="EEH-Yd-Qye"/>
-                            <constraint firstItem="AaY-UU-zCT" firstAttribute="leading" secondItem="GMQ-Ua-qUy" secondAttribute="leading" id="Kqr-Lv-vL2"/>
-                            <constraint firstItem="XeB-7N-jHA" firstAttribute="top" secondItem="AaY-UU-zCT" secondAttribute="bottom" constant="36" id="sjC-VE-ejQ"/>
-                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Ry-VH-fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Валюты" id="qVU-md-8fw"/>
+                    <navigationItem key="navigationItem" title="Валюты" id="ehr-Pw-EMm"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="currencyCollectionView" destination="LxV-rv-MQU" id="oWl-lq-X9x"/>
-                        <outlet property="inputTextField" destination="XeB-7N-jHA" id="5Jg-xw-IvM"/>
+                        <outlet property="currencyCollectionView" destination="udV-0K-7H5" id="Nu9-XR-Muz"/>
+                        <outlet property="inputTextField" destination="10z-df-CjI" id="s60-vZ-fwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyO-tU-eHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298.4000000000001" y="50.246305418719217"/>
+            <point key="canvasLocation" x="1047" y="24"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="wpg-k7-4Wg">
+        <scene sceneID="JTU-vQ-anE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PM9-3c-f8G" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m2i-tq-yyy">
+                <navigationController id="xft-um-ARR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T3a-C1-JK9">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="k11-Bd-uU4" kind="relationship" relationship="rootViewController" id="HRv-q3-x4Y"/>
+                        <segue destination="k11-Bd-uU4" kind="relationship" relationship="rootViewController" id="zKw-8u-Esi"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWN-hs-Rnd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDW-Nu-ejf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="50.246305418719217"/>
+            <point key="canvasLocation" x="2266" y="-22"/>
         </scene>
     </scenes>
     <resources>
