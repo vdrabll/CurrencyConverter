@@ -18,7 +18,7 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
-       super.awakeFromNib()
+        super.awakeFromNib()
         self.setCellParameters()
     }
     
