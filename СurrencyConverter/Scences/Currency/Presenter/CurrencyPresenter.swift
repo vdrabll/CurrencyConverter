@@ -8,13 +8,15 @@
 import Foundation
 
 class CurrencyPresenter: CurrencyViewOutput {
-   
+    
     private let formatter: FormatterProtocol
     weak var view: CurrencyViewInput?
+    var model = CurrencyData()
     private var selectedDate = Date()
-    
-    private enum Constants {
-       static let dateFormat = "dd.MM.yyyy"
+    var urlsData: String!
+
+        private enum Constants {
+       static let dateFormat = "YYYY-MM-dd"
     }
     
     init(formatter: FormatterProtocol, view: CurrencyViewInput ) {
@@ -31,10 +33,15 @@ class CurrencyPresenter: CurrencyViewOutput {
         view?.setupInitialState()
         view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
         view?.setMaxDate(date: selectedDate)
+        model.getTodaysCurrencyRate()
     }
     
     func dateChanged(date: Date) {
-        view?.setTextFieldTitle(formatter.formatDate(date: date, format: Constants.dateFormat))
+        urlsData = formatter.formatDate(date: date, format: Constants.dateFormat)
+        view?.setTextFieldTitle(urlsData)
         selectedDate = date
+        model.getArchiveCurrencyRate(data: urlsData)
+        
     }
+    
 }

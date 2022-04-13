@@ -14,6 +14,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     @IBOutlet private weak var currencyCollectionView: UICollectionView!
     private let datePicker: UIDatePicker = UIDatePicker()
     
+    
     private enum Constants {
         static let datePickerSize: CGSize = CGSize(width: 0, height: 300)
         static let cellEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 34, bottom: 24, right: 34)
@@ -26,13 +27,12 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         static let numberOfItemsInSection = 15
     }
    
-    private var data = CurrencyData(name: "RUB", price: "30")
     private var output: CurrencyViewOutput!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
+        print("ты у меня вообще работаешь или нет")
     }
     
     private func setupPresenter() {
@@ -79,13 +79,14 @@ extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellId, for: indexPath) as? CurrencyCollectionViewCell else { return UICollectionViewCell() }
-        cell.setData(data: data)
+      //  cell.setData(data: data)
+        cell.setCellParameters()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = view.frame.width - (Constants.gapBetweenCells * Constants.two) + (Constants.edgeDistance * Constants.two) / Constants.cellsInRow 
-        let width = height
+        let height = ( view.frame.width - (Constants.gapBetweenCells * Constants.two) + (Constants.edgeDistance * Constants.two)) / Constants.cellsInRow 
+        let width = height 
         return CGSize(width: width, height: height)
     }
 

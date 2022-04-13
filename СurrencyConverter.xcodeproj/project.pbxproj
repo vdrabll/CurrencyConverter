@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5127E7A827FB3E5000ECD249 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C1436527F72CB900E59A5E /* CurrencyViewController.swift */; };
+		514603CA27FEEAEC00767A82 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 514603C927FEEAEC00767A82 /* Alamofire */; };
 		51AB720227E8613E0077A20E /* FormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AB720127E8613E0077A20E /* FormattingUtils.swift */; };
 		51AB720427E87BA20077A20E /* FormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AB720327E87BA20077A20E /* FormatterProtocol.swift */; };
 		51C1436927F73C7600E59A5E /* CurrencyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C1436727F73C7600E59A5E /* CurrencyCollectionViewCell.swift */; };
@@ -64,6 +65,8 @@
 		51F000CF27E1F2CA00856D68 /* СurrencyConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "СurrencyConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F000D327E1F2CA00856D68 /* CurrencyConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITests.swift; sourceTree = "<group>"; };
 		51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		51F471A6280033D5002BA034 /* SwiftyJSON-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftyJSON-master"; path = "../../../Downloads/SwiftyJSON-master"; sourceTree = "<group>"; };
+		51F471A72800374D002BA034 /* SwiftyJSON-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftyJSON-master"; path = "../../../Downloads/SwiftyJSON-master"; sourceTree = "<group>"; };
 		51FF346427E5EFC300E4FC57 /* CurrencyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenter.swift; sourceTree = "<group>"; };
 		51FF346627E5F12900E4FC57 /* CurrencyViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewOutput.swift; sourceTree = "<group>"; };
 		51FF346A27E5F5A200E4FC57 /* CurrencyViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewInput.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				514603CA27FEEAEC00767A82 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,7 @@
 		51F000A627E1F2C500856D68 = {
 			isa = PBXGroup;
 			children = (
+				51F471A5280033D5002BA034 /* Packages */,
 				51F000B127E1F2C500856D68 /* СurrencyConverter */,
 				51F000C827E1F2CA00856D68 /* СurrencyConverterTests */,
 				51F000D227E1F2CA00856D68 /* СurrencyConverterUITests */,
@@ -162,6 +167,15 @@
 				51F000D527E1F2CA00856D68 /* CurrencyConverterUITestsLaunchTests.swift */,
 			);
 			path = "СurrencyConverterUITests";
+			sourceTree = "<group>";
+		};
+		51F471A5280033D5002BA034 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				51F471A6280033D5002BA034 /* SwiftyJSON-master */,
+				51F471A72800374D002BA034 /* SwiftyJSON-master */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 		51FF346227E5EF1000E4FC57 /* Currency */ = {
@@ -217,6 +231,9 @@
 			dependencies = (
 			);
 			name = "СurrencyConverter";
+			packageProductDependencies = (
+				514603C927FEEAEC00767A82 /* Alamofire */,
+			);
 			productName = "СurrencyConverter";
 			productReference = 51F000AF27E1F2C500856D68 /* СurrencyConverter.app */;
 			productType = "com.apple.product-type.application";
@@ -289,6 +306,9 @@
 				Base,
 			);
 			mainGroup = 51F000A627E1F2C500856D68;
+			packageReferences = (
+				514603C827FEEAEC00767A82 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 51F000B027E1F2C500856D68 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -688,6 +708,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		514603C827FEEAEC00767A82 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		514603C927FEEAEC00767A82 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 514603C827FEEAEC00767A82 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 51F000A727E1F2C500856D68 /* Project object */;
 }

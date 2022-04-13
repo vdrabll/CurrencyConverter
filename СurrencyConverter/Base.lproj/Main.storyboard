@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k11-Bd-uU4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k11-Bd-uU4">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,42 +16,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="udV-0K-7H5">
-                                <rect key="frame" x="0.0" y="165" width="375" height="613"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-MS-Z4K">
+                                <rect key="frame" x="47" y="122" width="281" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cEQ-6W-pBa">
+                                <rect key="frame" x="0.0" y="179" width="375" height="599"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xNy-cb-jNv">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dB3-Id-qbx">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="k11-Bd-uU4" id="Zm9-l9-cKD"/>
-                                    <outlet property="delegate" destination="k11-Bd-uU4" id="aT4-1d-gvH"/>
-                                </connections>
                             </collectionView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10z-df-CjI">
-                                <rect key="frame" x="53" y="109" width="270" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Ry-VH-fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstItem="cEQ-6W-pBa" firstAttribute="top" secondItem="aQY-MS-Z4K" secondAttribute="bottom" constant="23" id="P3W-z0-5SB"/>
+                            <constraint firstItem="cEQ-6W-pBa" firstAttribute="leading" secondItem="1Ry-VH-fre" secondAttribute="leading" id="Vp5-3y-mDJ"/>
+                            <constraint firstItem="aQY-MS-Z4K" firstAttribute="leading" secondItem="1Ry-VH-fre" secondAttribute="leading" constant="47" id="VvV-Qu-YDA"/>
+                            <constraint firstItem="cEQ-6W-pBa" firstAttribute="trailing" secondItem="1Ry-VH-fre" secondAttribute="trailing" id="XZJ-j4-DHk"/>
+                            <constraint firstItem="1Ry-VH-fre" firstAttribute="trailing" secondItem="aQY-MS-Z4K" secondAttribute="trailing" constant="47" id="nhk-cd-PeV"/>
+                            <constraint firstItem="aQY-MS-Z4K" firstAttribute="top" secondItem="1Ry-VH-fre" secondAttribute="top" constant="34" id="pJO-B6-AXe"/>
+                            <constraint firstItem="cEQ-6W-pBa" firstAttribute="bottom" secondItem="1Ry-VH-fre" secondAttribute="bottom" id="sDy-38-7ig"/>
+                            <constraint firstItem="cEQ-6W-pBa" firstAttribute="top" secondItem="aQY-MS-Z4K" secondAttribute="bottom" constant="23" id="uzI-OY-IHT"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Валюты" id="ehr-Pw-EMm"/>
+                    <navigationItem key="navigationItem" title="Валюты" largeTitleDisplayMode="always" id="NCA-eu-obo"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="currencyCollectionView" destination="udV-0K-7H5" id="kQE-YM-1AS"/>
-                        <outlet property="inputTextField" destination="10z-df-CjI" id="kHK-Uu-ghf"/>
+                        <outlet property="currencyCollectionView" destination="cEQ-6W-pBa" id="FU4-0r-JYy"/>
+                        <outlet property="inputTextField" destination="aQY-MS-Z4K" id="93j-yb-FdC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyO-tU-eHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="24"/>
+            <point key="canvasLocation" x="1232.8" y="-41.379310344827587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JTU-vQ-anE">
@@ -67,7 +74,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDW-Nu-ejf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2266" y="-22"/>
+            <point key="canvasLocation" x="505" y="-30"/>
         </scene>
     </scenes>
     <resources>
