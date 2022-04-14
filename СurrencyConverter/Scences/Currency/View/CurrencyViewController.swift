@@ -15,6 +15,8 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     private let datePicker: UIDatePicker = UIDatePicker()
     
     
+    
+    
     private enum Constants {
         static let datePickerSize: CGSize = CGSize(width: 0, height: 300)
         static let cellEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 34, bottom: 24, right: 34)
@@ -24,7 +26,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         static let edgeDistance = 24.0
         static let two = 2.0
         static let cellsInRow = 3.0
-        static let numberOfItemsInSection = 15
+        static let numberOfItemsInSection = 31
     }
    
     private var output: CurrencyViewOutput!
@@ -32,7 +34,6 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         super.viewDidLoad()
         setupPresenter()
         output.viewLoaded()
-        print("ты у меня вообще работаешь или нет")
     }
     
     private func setupPresenter() {
@@ -79,7 +80,6 @@ extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellId, for: indexPath) as? CurrencyCollectionViewCell else { return UICollectionViewCell() }
-      //  cell.setData(data: data)
         cell.setCellParameters()
         return cell
     }

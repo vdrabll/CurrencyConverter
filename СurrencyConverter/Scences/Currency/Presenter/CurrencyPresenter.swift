@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class CurrencyPresenter: CurrencyViewOutput {
     
@@ -33,14 +34,19 @@ class CurrencyPresenter: CurrencyViewOutput {
         view?.setupInitialState()
         view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
         view?.setMaxDate(date: selectedDate)
-        model.getTodaysCurrencyRate()
+        model.getTodayCurrencies { (currencies: CurrencyRate?, error: AFError?) in
+            // todo handle error
+            print("Моя любимая валюта:", currencies?.Valute.values)
+        }
     }
     
     func dateChanged(date: Date) {
         urlsData = formatter.formatDate(date: date, format: Constants.dateFormat)
         view?.setTextFieldTitle(urlsData)
         selectedDate = date
-        model.getArchiveCurrencyRate(data: urlsData)
+        model.getArchiveCurrencyRate(data: urlsData) { ( currencies: CurrencyRate?, error: AFError? ) in
+            
+        }
         
     }
     
