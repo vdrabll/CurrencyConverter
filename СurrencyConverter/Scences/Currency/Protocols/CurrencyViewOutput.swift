@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CurrencyViewOutput  {
     func viewLoaded()
     func dateChanged(date: Date)
+    func getCurrencies(completionHandler: @escaping ([CurrencyViewModel]) -> ())
+    func getArchiveCurrencies(completionHandler: @escaping ([CurrencyViewModel]) -> ())
 }
 

@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CloudKit
+import SwiftUI
 
 class CurrencyCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var tickerLabel: UILabel!
+    @IBOutlet weak var viewInfoButton: UIButton! 
     
     private enum Constants {
         static let radius = 12.0
@@ -27,8 +30,8 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = Constants.backgroundColor
     }
     
-    func setData(data: CurrencyRate) {
-//        self.tickerLabel.text = data.Valute.
-//        self.priceLabel.text =  "\(data.value)"
+    func setData(currency: CurrencyViewModel) {
+        self.priceLabel.text = "\(String(format: "%.2f", currency.price))"
+        self.tickerLabel.text = "\(String(describing: currency.ticker))"
     }
 }

@@ -7,38 +7,42 @@
 
 import UIKit
 import Foundation
+import SwiftUI
 
 class CurrencyViewController: UIViewController, CurrencyViewInput {
     
-    @IBOutlet private weak var inputTextField: UITextField!
-    @IBOutlet private weak var currencyCollectionView: UICollectionView!
+    private var uiCells: [CurrencyCollectionViewCell] = []
+    private var cellsData: [CurrencyViewModel] = []
     private let datePicker: UIDatePicker = UIDatePicker()
+    @IBOutlet private weak var inputDateField: UITextField!
+    @IBOutlet private weak var currencyCollectionView: UICollectionView!
+    private var currencyPresenter: CurrencyViewOutput!
     
-    
-    
+    typealias FinishedDownload = () -> ()
     
     private enum Constants {
         static let datePickerSize: CGSize = CGSize(width: 0, height: 300)
-        static let cellEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 34, bottom: 24, right: 34)
+        static let cellEdgeInsets: UIEdgeInsets = UIEdgeInsets(
+            top: 10, left: 34, bottom: 24, right: 34)
         static let spacingForCells: CGFloat = CGFloat(8)
         static let currencyCollectionCellId = "collectionCell"
         static let gapBetweenCells = 8.0
         static let edgeDistance = 24.0
-        static let two = 2.0
         static let cellsInRow = 3.0
-        static let numberOfItemsInSection = 31
     }
    
-    private var output: CurrencyViewOutput!
     override func viewDidLoad() {
-        super.viewDidLoad()
         setupPresenter()
-        output.viewLoaded()
+        currencyPresenter.viewLoaded()
+        currencyPresenter.getCurrencies { currencies in
+            self.cellsData = currencies
+            super.viewDidLoad()
+            self.setupInitialState()
+        }
     }
     
     private func setupPresenter() {
-        let presenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
-        self.output = presenter
+        self.currencyPresenter = CurrencyPresenter(formatter: FormattingUtils(), view: self)
     }
     
     private func setupDatePicker() {
@@ -46,7 +50,7 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
         datePicker.addTarget(self, action: #selector(dataChanged(datePicker:)), for: .valueChanged)
         datePicker.frame.size = Constants.datePickerSize
         datePicker.preferredDatePickerStyle = .wheels
-        inputTextField.inputView = datePicker
+        inputDateField.inputView = datePicker
         
         let gestRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(guertureRecognizer:)))
         view.addGestureRecognizer(gestRecognizer)
@@ -57,52 +61,90 @@ class CurrencyViewController: UIViewController, CurrencyViewInput {
     }
     
     @objc private func dataChanged(datePicker: UIDatePicker) {
-        output.dateChanged(date: datePicker.date)
+        currencyPresenter.dateChanged(date: datePicker.date)
+        currencyPresenter.getArchiveCurrencies { currencies in
+            if !currencies.isEmpty {
+                for i in 0...currencies.count - 1 {
+                    if self.uiCells.count > i {
+                        self.uiCells[i].setData(currency: currencies[i])
+                    }
+                }
+            }
+        }
     }
     
-    func setMaxDate( date: Date) {
+    func setMaxDate(date: Date) {
         datePicker.maximumDate = date
     }
     
     func setTextFieldTitle(_ title: String){
-        inputTextField.text = title
+        inputDateField.text = title
     }
     
     func setupInitialState() {
         setupDatePicker()
-        currencyCollectionView.register(UINib(nibName: "CurrencyCollectionViewCell" , bundle: nil ), forCellWithReuseIdentifier: Constants.currencyCollectionCellId)
+        let uiNib = UINib(nibName: "CurrencyCollectionViewCell" , bundle: nil )
+        currencyCollectionView.register(uiNib,
+                    forCellWithReuseIdentifier: Constants.currencyCollectionCellId)
         currencyCollectionView.dataSource = self
         currencyCollectionView.delegate = self
+        
     }
 }
 
 extension CurrencyViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellId, for: indexPath) as? CurrencyCollectionViewCell else { return UICollectionViewCell() }
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.currencyCollectionCellId, for: indexPath) as? CurrencyCollectionViewCell
+        else {
+            return UICollectionViewCell()
+        }
         cell.setCellParameters()
+        cell.setData(currency: cellsData[indexPath.item])
+        uiCells.append(cell)
+        cell.viewInfoButton.tag = indexPath.item
+        cell.viewInfoButton.addTarget(self, action:#selector(self.openInfo(sender:)), for: .touchDown)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = ( view.frame.width - (Constants.gapBetweenCells * Constants.two) + (Constants.edgeDistance * Constants.two)) / Constants.cellsInRow 
-        let width = height 
+    @objc func openInfo(sender: UIButton ) {
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "CurrencyInfoViewController") as! CurrencyInfoViewController
+        nextViewController.currency = self.cellsData[sender.tag]
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // todo extract calc height to func
+        let height = ( view.frame.width - (Constants.gapBetweenCells * 2.0) + (Constants.edgeDistance * 2.0)) / Constants.cellsInRow
+        let width = height
         return CGSize(width: width, height: height)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
         return Constants.cellEdgeInsets
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.spacingForCells
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.spacingForCells
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.numberOfItemsInSection
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return self.cellsData.count
     }
 }
+

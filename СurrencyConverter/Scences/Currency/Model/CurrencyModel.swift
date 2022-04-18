@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct CurrencyModel: Codable {
-    let id, numCode, charCode: String
-    let nominal: Int
-    let name: String
-    let value, previous: Double
-    
-
+struct CurrencyModel: Codable, Hashable {
+    let id, numCode, charCode: String!
+    let nominal: Int!
+    let name: String!
+    let value, previous: Double!
 enum CodingKeys: String, CodingKey {
         case id = "ID"
         case numCode = "NumCode"

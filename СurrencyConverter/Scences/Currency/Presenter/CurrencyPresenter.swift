@@ -7,16 +7,17 @@
 
 import Foundation
 import Alamofire
+import SwiftUI
 
 class CurrencyPresenter: CurrencyViewOutput {
-    
+ 
     private let formatter: FormatterProtocol
     weak var view: CurrencyViewInput?
-    var model = CurrencyData()
     private var selectedDate = Date()
     var urlsData: String!
-
-        private enum Constants {
+    let cbrAPI = CurrencyData()
+    
+    private enum Constants {
        static let dateFormat = "YYYY-MM-dd"
     }
     
@@ -31,23 +32,36 @@ class CurrencyPresenter: CurrencyViewOutput {
     }
     
     func viewLoaded() {
-        view?.setupInitialState()
         view?.setTextFieldTitle(getCurrentDate(with: Constants.dateFormat))
         view?.setMaxDate(date: selectedDate)
-        model.getTodayCurrencies { (currencies: CurrencyRate?, error: AFError?) in
-            // todo handle error
-            print("Моя любимая валюта:", currencies?.Valute.values)
-        }
     }
     
     func dateChanged(date: Date) {
         urlsData = formatter.formatDate(date: date, format: Constants.dateFormat)
         view?.setTextFieldTitle(urlsData)
         selectedDate = date
-        model.getArchiveCurrencyRate(data: urlsData) { ( currencies: CurrencyRate?, error: AFError? ) in
-            
-        }
-        
     }
     
+    func getCurrencies(completionHandler: @escaping ([CurrencyViewModel]) -> ()) {
+        cbrAPI.getTodayCurrencies { (currenciesRate: CurrencyRate?, error: AFError?) in
+            var currencies: [CurrencyViewModel] = []
+            currenciesRate?.Valute.forEach({ (key: String, value: CurrencyModel) in
+                currencies.append(CurrencyViewModel(
+                    ticker: key, name: value.name, price: value.value))
+            })
+            completionHandler(currencies)
+        }
+    }
+    
+    func getArchiveCurrencies(completionHandler: @escaping ([CurrencyViewModel]) -> ()) {
+        cbrAPI.getArchiveCurrencyRate(data: urlsData) {
+            (currenciesRate: CurrencyRate?, error: AFError? ) in
+            var archiveCurrencies: [CurrencyViewModel] = []
+            currenciesRate?.Valute.forEach({ (key: String, value: CurrencyModel) in
+                archiveCurrencies.append(CurrencyViewModel(
+                ticker: key, name: value.name, price: value.value))
+            })
+            completionHandler(archiveCurrencies)
+        }
+    }
 }
